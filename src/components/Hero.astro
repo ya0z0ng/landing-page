@@ -1,0 +1,52 @@
+---
+import CtaButton from "./CtaButton.astro";
+import Paragraph, { type TextDescription } from "./basic/Paragraph.astro";
+import Title from "./basic/Title.astro";
+import LazyImage from "./basic/LazyImage.astro";
+
+export interface Props {
+    className?: string;
+    title: string | TextDescription[];
+    leading: string;
+    heroImg: ImageMetadata;
+    buttonText: string;
+}
+
+const { className = "", heroImg, title, leading, buttonText } = Astro.props;
+---
+
+<section class={`relative ${className} w-full`} id="hero">
+    <div class="w-full h-dvh">
+        <div
+            class="w-full h-full grid grid-cols-1 md:grid-cols-2 justify-end bg-base-100 dark:bg-base-dark-900"
+        >
+            <div
+                class="justify-center flex flex-col text-center md:ml-auto max-w-160 p-header"
+            >
+                <Title className="">
+                    <Paragraph text={title} />
+                </Title>
+                <Title level="s-1" className=" mt-10 leading-9 italic">
+                    {leading}
+                </Title>
+                <div class="pt-10">
+                    <CtaButton>{buttonText}</CtaButton>
+                </div>
+            </div>
+            <div class="flex relative pt-10 md:p-0">
+                <LazyImage
+                    src={heroImg}
+                    alt="A picture of a wind turbine."
+                    className="w-full h-full object-cover"
+                />
+                <svg
+                    class="fill-base-100 dark:fill-base-dark-900 z-10 absolute top-0 start-0 h-full hidden md:block"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 500 400"
+                >
+                    <path d="M0 0l0 400L100 0Z"> </path>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>

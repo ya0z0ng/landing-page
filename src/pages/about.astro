@@ -1,63 +1,89 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import CompanyImg from "../assets/images/IMG_6631.jpg";
+import Layout from "../layouts/Layout.astro";
+import NavHeader from "../components/NavHeader.astro";
+import NavFooter from "../components/NavFooter.astro";
+import Container from "../components/Container.astro";
+import Title from "../components/basic/Title.astro";
+import LazyImage from "../components/basic/LazyImage.astro";
+import { KEY_SERVICES, INNOVATIONS, TESTIMONIALS, SITE } from "../consts";
+
+const {
+    company,
+    headNavigations,
+    footNavigations,
+    footerDescription,
+    foundedTime,
+    address,
+    call,
+    email,
+    site,
+    board,
+    paidInCapital,
+    services,
+} = SITE;
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
-
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+<Layout>
+    <NavHeader navigations={headNavigations} />
+    <main class="py-24 bg-accent-50">
+        <Container className="flex gap-11">
+            <LazyImage
+                src={CompanyImg}
+                alt="Company Logo"
+                className="w-3xs h-60 object-cover rounded-2xl"
+            />
+            <div>
+                <Title
+                    level="s-1"
+                    className="border-l-4 border-primary pl-2 mb-10"
+                    >About Us</Title
+                >
+                <div
+                    class="grid grid-cols-[200px_auto] mb-20 border-t border-accent-200 *:px-5 *:py-2 *:border-b *:border-inherit [&>span]:odd:text-right [&>span]:odd:border-r text-[18px]"
+                >
+                    <span>企业名称</span>
+                    <span>{company}</span>
+                    <span>创建时间</span>
+                    <span>{foundedTime}</span>
+                    <span>董事会成员</span>
+                    <span>{board}</span>
+                    <span>起始金额</span>
+                    <span>{paidInCapital}</span>
+                    <span>联系方式</span>
+                    <ul>
+                        <li>
+                            <span>邮箱: {email}</span>
+                        </li>
+                        <li>
+                            <span>电话: {call}</span>
+                        </li>
+                    </ul>
+                    <span>地址</span>
+                    <span>{address}</span>
+                    <span>业务内容</span>
+                    <ul>
+                        {
+                            services.map((s) => (
+                                <li>
+                                    <span>{s}</span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <Title
+                    level="s-1"
+                    className="border-l-4 border-primary pl-2 mb-10"
+                    >创始成员</Title
+                >
+                <div></div>
+            </div>
+        </Container>
+    </main>
+    <NavFooter
+        company={company}
+        footerDescription={footerDescription}
+        navigations={footNavigations}
+    />
 </Layout>

@@ -1,0 +1,28 @@
+---
+import Container from "../Container.astro";
+import Paragraph, { type TextDescription } from "../basic/Paragraph.astro";
+import Title from "../basic/Title.astro";
+import Tag from "../Tag.astro";
+
+export interface Props {
+    className?: string;
+    title: string | TextDescription[];
+    section: string;
+}
+
+const { className, title, section } = Astro.props;
+---
+
+<section id="innovations" class={`bg-accent-50 py-20 ${className}`}>
+    <Container
+        className="mx-auto flex flex-col items-center justify-center text-center"
+    >
+        <Tag><Title level="2">{section}</Title></Tag>
+        <Title level="s-2">
+            <Paragraph text={title} />
+        </Title>
+    </Container>
+    <Container className="flex flex-col gap-10">
+        <slot />
+    </Container>
+</section>

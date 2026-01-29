@@ -1,0 +1,36 @@
+---
+export interface Props {
+    className?: string;
+    level?: "1" | "2" | "3" | "s-1" | "s-2" | "s-3";
+}
+
+const { className, level = "1" } = Astro.props;
+let levelClass: string[] = [];
+switch (level) {
+    case "1":
+        levelClass.push("text-6xl font-bold leading-tight mb-4");
+        break;
+    case "2":
+        levelClass.push("font-bold leading-tight mx-2 my-1");
+        break;
+    case "3":
+        levelClass.push("text-2xl font-bold leading-tight mb-4");
+        break;
+    case "s-1":
+        levelClass.push("text-xl font-medium mb-2");
+        break;
+    case "s-2":
+        levelClass.push(
+            "tracking-wide antialiased mb-8 text-lg md:text-4xl font-extrabold",
+        );
+        break;
+    case "s-3":
+        levelClass.push("text-lg font-bold leading-tight mb-2");
+        break;
+}
+className && levelClass.push(className);
+---
+
+<h1 class={levelClass.join(" ")}>
+    <slot />
+</h1>

@@ -1,0 +1,28 @@
+---
+import GradientText from "./GradientText.astro";
+export type TextDescription = {
+    text: string;
+    foreground?: string;
+    background?: string;
+};
+export interface Props {
+    className?: string;
+    text: (string | TextDescription)[];
+}
+
+const { className, text } = Astro.props;
+---
+
+<p class={className}>
+    {
+        typeof text === "string"
+            ? text
+            : text.map((item) =>
+                  typeof item === "string" ? (
+                      item
+                  ) : (
+                      <GradientText>{item.text}</GradientText>
+                  ),
+              )
+    }
+</p>
