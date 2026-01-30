@@ -6,23 +6,22 @@ import Tag from "../Tag.astro";
 
 export interface Props {
     className?: string;
-    title: string | TextDescription[];
-    section: string;
+    title: string | (string | TextDescription)[];
+    leading: string;
 }
 
-const { className, title, section } = Astro.props;
+const { className, title, leading } = Astro.props;
 ---
 
-<section id="innovations" class={`bg-accent-50 py-20 ${className}`}>
+<section class={`bg-accent-50 py-header ${className}`}>
     <Container
         className="mx-auto flex flex-col items-center justify-center text-center"
     >
-        <Tag><Title level="2">{section}</Title></Tag>
-        <Title level="s-2">
+        <Title>
             <Paragraph text={title} />
         </Title>
+        <Title level="s-2">
+            <Paragraph text={leading} />
+        </Title>
     </Container>
-    <div class="*:odd:bg-base-100">
-        <slot />
-    </div>
 </section>

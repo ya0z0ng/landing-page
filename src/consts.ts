@@ -105,7 +105,8 @@ export const KEY_SERVICES = {
 };
 
 export const INNOVATIONS = {
-  title: "",
+  title:
+    "我们坚持以生态种植为原则，拒绝滥用化学肥料与农药，严格遵循日本农业生产相关标准",
   section: "公司价值",
   leading: "",
   innovations: [

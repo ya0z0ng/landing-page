@@ -10,6 +10,7 @@ import LatestInnovations from "../components/sections/LatestInnovations.astro";
 import InnovationCard from "../components/sections/components/InnovationCard.astro";
 import CustomerTestimonials from "../components/sections/CustomerTestimonials.astro";
 import TestimonialCard from "../components/sections/components/TestimonialCard.astro";
+import ContactUs from "../components/sections/ContactUs.astro";
 import { KEY_SERVICES, INNOVATIONS, TESTIMONIALS, SITE } from "../consts";
 
 const {
@@ -93,6 +94,11 @@ const {
         <!-- Invite users to actively participate or learn more about sustainability. -->
         <!-- Provide information on community initiatives, events, or partnerships. -->
         <!-- Include a call-to-action for users to join your community or subscribe to updates. -->
+        <ContactUs
+            className="mb-header"
+            title={[{ text: "Join us" }, " in Building a Sustainable Future"]}
+            leading="Discover our community initiatives aimed at promoting awareness and education on sustainable living. Join us in creating a positive impact together"
+        />
     </main>
     <NavFooter
         company={company}
