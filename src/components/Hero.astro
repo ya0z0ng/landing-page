@@ -18,22 +18,22 @@ const { className = "", heroImg, title, leading, buttonText } = Astro.props;
 <section class={`relative ${className} w-full`} id="hero">
     <div class="w-full h-dvh">
         <div
-            class="w-full h-full grid grid-cols-1 md:grid-cols-2 justify-end bg-base-100 dark:bg-base-dark-900"
+            class="relative w-full h-full md:grid md:grid-cols-2 justify-end bg-base-100 dark:bg-base-dark-900"
         >
             <div
-                class="justify-center flex flex-col text-center md:ml-auto max-w-160 p-header"
+                class="justify-center flex flex-col text-center md:ml-auto md:max-w-160 md:p-header max-md:py-header max-md:px-p-sm max-md:absolute max-md:w-full max-md:h-full max-md:z-1 max-md:text-accent-50"
             >
                 <Title className="">
                     <Paragraph text={title} />
                 </Title>
-                <Title level="s-1" className=" mt-10 leading-9 italic">
+                <Title level="s-1" className="mt-10 md:leading-9 italic">
                     {leading}
                 </Title>
                 <div class="pt-10">
                     <CtaButton>{buttonText}</CtaButton>
                 </div>
             </div>
-            <div class="flex relative pt-10 md:p-0">
+            <div class="flex relative md:p-0 max-md:h-full">
                 <LazyImage
                     src={heroImg}
                     alt="A picture of a wind turbine."
@@ -46,6 +46,10 @@ const { className = "", heroImg, title, leading, buttonText } = Astro.props;
                 >
                     <path d="M0 0l0 400L100 0Z"> </path>
                 </svg>
+                <div
+                    class="max-md:block bg-linear-to-b from-black/20 to-black/60 absolute w-full h-full"
+                >
+                </div>
             </div>
         </div>
     </div>

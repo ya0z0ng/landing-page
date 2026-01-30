@@ -25,9 +25,9 @@ const {
 ---
 
 <Layout>
-    <NavHeader navigations={headNavigations} />
+    <NavHeader navigations={headNavigations} className="bg-accent-50" />
     <main class="py-24 bg-accent-50">
-        <Container className="flex gap-11">
+        <Container className="flex gap-11 max-md:flex-col">
             <LazyImage
                 src={CompanyImg}
                 alt="Company Logo"
@@ -40,7 +40,7 @@ const {
                     >About Us</Title
                 >
                 <div
-                    class="grid grid-cols-[200px_auto] mb-20 border-t border-accent-200 *:px-5 *:py-2 *:border-b *:border-inherit [&>span]:odd:text-right [&>span]:odd:border-r text-[18px]"
+                    class="grid md:grid-cols-[200px_auto] mb-20 md:border-t md:border-accent-200 md:*:px-5 *:py-2 max-md:*:even:border-b max-md:[&>span]:odd:text-sm md:*:border-b *:border-inherit md:[&>span]:odd:text-right md:[&>span]:odd:border-r text-[18px]"
                 >
                     <span>企业名称</span>
                     <span>{company}</span>

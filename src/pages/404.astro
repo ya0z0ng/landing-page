@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavHeader from "../components/NavHeader.astro";
+import NavFooter from "../components/NavFooter.astro";
+import Container from "../components/Container.astro";
+import Title from "../components/basic/Title.astro";
+import { SITE } from "../consts";
+
+const { company, headNavigations, footNavigations, footerDescription } = SITE;
+---
+
+<Layout>
+    <NavHeader navigations={headNavigations} className="bg-accent-50" />
+    <main class="py-24 bg-accent-50">
+        <Container>
+            <Title> Page Not Found </Title>
+        </Container>
+    </main>
+    <NavFooter
+        company={company}
+        footerDescription={footerDescription}
+        navigations={footNavigations}
+    />
+</Layout>

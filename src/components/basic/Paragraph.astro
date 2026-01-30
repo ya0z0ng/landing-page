@@ -7,7 +7,7 @@ export type TextDescription = {
 };
 export interface Props {
     className?: string;
-    text: (string | TextDescription)[];
+    text: string | (string | TextDescription)[];
 }
 
 const { className, text } = Astro.props;

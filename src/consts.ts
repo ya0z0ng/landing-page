@@ -39,7 +39,7 @@ export const SITE = {
     "每一批稻子在收获后都会经过严格的品质检测，确保颗粒完整、无杂质、水分达标，以稳定的品质为客户提供可靠的稻源保障，传递日本青森水稻的独特价值",
   headNavigations: [
     { label: "About", url: "/about" },
-    { label: "Services", url: "/services" },
+    // { label: "Services", url: "/services" },
     { label: "Contact", url: "/contact" },
   ],
   footerDescription:
