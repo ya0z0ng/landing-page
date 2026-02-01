@@ -4,6 +4,7 @@ import NavHeader from "../components/NavHeader.astro";
 import NavFooter from "../components/NavFooter.astro";
 import Container from "../components/Container.astro";
 import Title from "../components/basic/Title.astro";
+import CtaButton from "../components/CtaButton.astro";
 import { SITE } from "../consts";
 
 const { company, headNavigations, footNavigations, footerDescription } = SITE;
@@ -13,103 +14,68 @@ const { company, headNavigations, footNavigations, footerDescription } = SITE;
     <NavHeader navigations={headNavigations} className="bg-accent-50" />
     <main class="py-24 bg-accent-50">
         <Container>
-            <div>
-                <Title level="3">お問い合わせ</Title>
-                <form>
+            <Title level="s-1" className="border-l-6 border-primary pl-2 mb-10"
+                >お問い合わせ先</Title
+            >
+            <div class="flex max-md:flex-col gap-12">
+                <div class="basis-1/3">
+                    <p>{SITE.address}</p>
+                    <p>{SITE.email}</p>
+                    <p>{SITE.call}</p>
+                </div>
+                <form class="basis-2/3">
                     <!-- Grid de dos columnas -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Nombre -->
                         <div class="flex flex-col">
-                            <label
-                                for="nombre"
-                                class="font-semibold text-[#2F855A] mb-2"
-                                >Nombre</label
-                            >
                             <input
                                 type="text"
                                 id="nombre"
-                                name="nombre"
-                                placeholder="Tu nombre"
-                                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
-                                required
-                            />
-                        </div>
-
-                        <!-- Apellido -->
-                        <div class="flex flex-col">
-                            <label
-                                for="apellido"
-                                class="font-semibold text-[#2F855A] mb-2"
-                                >Apellido</label
-                            >
-                            <input
-                                type="text"
-                                id="apellido"
-                                name="apellido"
-                                placeholder="Tu apellido"
-                                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
+                                name="firstName"
+                                placeholder="お名前（必須）"
+                                class="border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
                                 required
                             />
                         </div>
 
                         <!-- Correo -->
                         <div class="flex flex-col">
-                            <label
-                                for="correo"
-                                class="font-semibold text-[#2F855A] mb-2"
-                                >Correo electrónico</label
-                            >
                             <input
                                 type="email"
                                 id="correo"
-                                name="correo"
-                                placeholder="tu@correo.com"
-                                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
+                                name="email"
+                                placeholder="メールアドレス（必須）"
+                                class="border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
                                 required
                             />
                         </div>
 
                         <!-- Teléfono -->
                         <div class="flex flex-col">
-                            <label
-                                for="telefono"
-                                class="font-semibold text-[#2F855A] mb-2"
-                                >Teléfono</label
-                            >
                             <input
                                 type="tel"
                                 id="telefono"
-                                name="telefono"
-                                placeholder="+54 9 ..."
-                                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
+                                name="phoneNumber"
+                                placeholder="電話番号"
+                                class="border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
                             />
                         </div>
                     </div>
 
                     <!-- Mensaje -->
                     <div class="flex flex-col mt-6">
-                        <label
-                            for="mensaje"
-                            class="font-semibold text-[#2F855A] mb-2"
-                            >Mensaje</label
-                        >
                         <textarea
                             id="mensaje"
                             name="mensaje"
-                            rows="5"
-                            placeholder="Escribe tu consulta aquí..."
-                            class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#F9C74F] resize-none"
+                            rows="10"
+                            placeholder="具体的なお問い合わせ内容"
+                            class="border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                             required></textarea>
                     </div>
 
                     <!-- Botón -->
                     <div class="text-center md:text-right mt-4">
-                        <button
-                            type="submit"
-                            class="bg-[#197e37] text-white hover:bg-[#095c22] font-bold px-14 py-3 rounded-full cursor-pointer transition"
-                        >
-                            Enviar
-                        </button>
+                        <CtaButton>送信する</CtaButton>
                     </div>
                 </form>
             </div>

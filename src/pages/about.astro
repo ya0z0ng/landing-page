@@ -1,5 +1,6 @@
 ---
 import CompanyImg from "../assets/images/IMG_6631.jpg";
+import Founder from "../assets/images/founder.jpg";
 import Layout from "../layouts/Layout.astro";
 import NavHeader from "../components/NavHeader.astro";
 import NavFooter from "../components/NavFooter.astro";
@@ -7,6 +8,8 @@ import Container from "../components/Container.astro";
 import Title from "../components/basic/Title.astro";
 import LazyImage from "../components/basic/LazyImage.astro";
 import { KEY_SERVICES, INNOVATIONS, TESTIMONIALS, SITE } from "../consts";
+import Text from "../components/basic/Text.astro";
+import Paragraph from "../components/basic/Paragraph.astro";
 
 const {
     company,
@@ -28,16 +31,18 @@ const {
     <NavHeader navigations={headNavigations} className="bg-accent-50" />
     <main class="py-24 bg-accent-50">
         <Container className="flex gap-11 max-md:flex-col">
-            <LazyImage
-                src={CompanyImg}
-                alt="Company Logo"
-                className="w-3xs h-60 object-cover rounded-2xl"
-            />
+            <div class="shrink-0">
+                <LazyImage
+                    src={CompanyImg}
+                    alt="Company Logo"
+                    className="md:w-full max-md:w-full h-60 object-cover rounded-2xl overflow-hidden"
+                />
+            </div>
             <div>
                 <Title
                     level="s-1"
-                    className="border-l-4 border-primary pl-2 mb-10"
-                    >About Us</Title
+                    className="border-l-6 border-primary pl-2 mb-10"
+                    >会社概要</Title
                 >
                 <div
                     class="grid md:grid-cols-[200px_auto] mb-20 md:border-t md:border-accent-200 md:*:px-5 *:py-2 max-md:*:even:border-b max-md:[&>span]:odd:text-sm md:*:border-b *:border-inherit md:[&>span]:odd:text-right md:[&>span]:odd:border-r text-[18px]"
@@ -51,7 +56,7 @@ const {
                     <span>起始金额</span>
                     <span>{paidInCapital}</span>
                     <span>联系方式</span>
-                    <ul>
+                    <ul class="reset">
                         <li>
                             <span>邮箱: {email}</span>
                         </li>
@@ -62,7 +67,7 @@ const {
                     <span>地址</span>
                     <span>{address}</span>
                     <span>业务内容</span>
-                    <ul>
+                    <ul class="reset">
                         {
                             services.map((s) => (
                                 <li>
@@ -74,10 +79,25 @@ const {
                 </div>
                 <Title
                     level="s-1"
-                    className="border-l-4 border-primary pl-2 mb-10"
-                    >创始成员</Title
+                    className="border-l-6 border-primary pl-2 mb-10"
+                    >創業者プロフィール</Title
                 >
-                <div></div>
+                <div class="flex items-center gap-10">
+                    <LazyImage
+                        src={Founder}
+                        alt="Company Logo"
+                        className="w-40 h-60 object-cover rounded-2xl overflow-hidden"
+                    />
+                    <div>
+                        <Title level="3">Founder Name</Title>
+                        <Text text="title" />
+                    </div>
+                </div>
+                <Paragraph
+                    text={[
+                        "東京での留学生活から、青森の稲田が広がる大地へ。一粒の米との出会いが、私の人生を日本東北に深く根付かせました。来日当初、私は東京で学問に励む留学生でした。あるご縁から青森の水稲と出会い、都会を離れる決意を固め、この地へと足を運びました。地元の日系農業企業に入社後は、留学生という立場を離れ、一人の見習いとして田んぼに立ち、日本の先輩方のもとで、育苗、耕起、栽培管理から収穫に至るまで、水稲栽培の一連の技術を一から学びました。風雨と日差しにさらされる田畑の中で、日本農業の厳密さと、土地がもたらす恵みを身をもって理解していきました。長年の積み重ねにより、独立して稲作に取り組み、自ら経営を行う力を培い、やがて自身の農業会社を設立しました。現在の規模はまだ小さいものの、導入した農業機械、整備した倉庫、一枚一枚の田んぼは、すべて私自身が地道に積み重ねてきた努力と覚悟の証です。小さく始め、確かな品質を追求することが基盤であり、その先に大きく強い経営があると信じています。これからも青森の地に根を張り、匠心をもって米の品質を守りながら、着実な投資によって経営規模を拡大していきます。小さな稲田から、より大きな農業の理想を育て、信頼される青森米の生産者であり続けたいと考えています。",
+                    ]}
+                />
             </div>
         </Container>
     </main>

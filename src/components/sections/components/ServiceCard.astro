@@ -1,39 +1,36 @@
 ---
 import Title from "../../basic/Title.astro";
 import LazyImage from "../../basic/LazyImage.astro";
+import { extendClass } from "../../../utils";
 
 export interface Props {
-    title: string;
-    description: string;
+    className?: string;
+    title?: string;
+    description?: string;
     visual: ImageMetadata;
 }
 
-const { title, description, visual } = Astro.props;
+const { title, description, visual, className } = Astro.props;
 const animation = `duration-300 ease-linear`;
 ---
 
-<div class={`${animation} group relative overflow-hidden rounded-lg h-full`}>
+<div
+    class={extendClass(
+        `${animation} group relative overflow-hidden rounded-lg h-full`,
+        className,
+        true,
+    )}
+>
     <LazyImage
         src={visual}
         alt="Hero"
-        height="400"
-        class={`w-full h-96 object-cover ${animation} group-hover:scale-125`}
+        class={`object-cover ${animation} group-hover:scale-125 w-full h-full`}
     />
-    <!-- <Image
-    src={visual}
-    alt="Hero"
-    width="2350"
-    height="2359"
-    class=`
-    w-full h-96 object-cover
-    ${animation} group-hover:scale-125
-    `
-  /> -->
     <div
-        class={`absolute top-0 h-full w-full bg-gradi bg-linear-to-b from-black/20 to-black/60 ${animation} group-hover:bg-black/60`}
+        class={`absolute top-0 h-full w-full bg-gradi bg-linear-to-b from-black/20 to-black/60 ${animation}`}
     >
     </div>
-    <div
+    <!-- <div
         class={`absolute flex flex-col bottom-0 w-full translate-y-[calc(100%-7.5rem)] group-hover:translate-y-0 content-center ${animation}`}
     >
         <div class={`m-6 text-white ${animation}`}>
@@ -48,5 +45,5 @@ const animation = `duration-300 ease-linear`;
                 {description}
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

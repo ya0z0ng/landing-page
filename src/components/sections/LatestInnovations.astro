@@ -1,28 +1,28 @@
 ---
 import Container from "../Container.astro";
-import Paragraph, { type TextDescription } from "../basic/Paragraph.astro";
-import Title from "../basic/Title.astro";
 import Tag from "../Tag.astro";
+import { INNOVATIONS } from "../../consts";
+import { extendClass } from "../../utils";
+import InnovationCard from "./components/InnovationCard.astro";
 
 export interface Props {
     className?: string;
-    title: string | TextDescription[];
-    section: string;
 }
 
-const { className, title, section } = Astro.props;
+const { className } = Astro.props;
 ---
 
-<section id="innovations" class={`bg-accent-50 py-20 ${className}`}>
+<section id="innovations" class={extendClass("pt-20 md:pb-20", className)}>
     <Container
         className="mx-auto flex flex-col items-center justify-center text-center"
     >
-        <Tag><Title level="2">{section}</Title></Tag>
-        <Title level="s-2">
-            <Paragraph text={title} />
-        </Title>
+        <Tag>{INNOVATIONS.section}</Tag>
     </Container>
     <div class="*:odd:bg-base-100">
-        <slot />
+        {
+            INNOVATIONS.innovations.map((props, index) => (
+                <InnovationCard {...props} reverse={index % 2 === 0} />
+            ))
+        }
     </div>
 </section>

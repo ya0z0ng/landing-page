@@ -1,16 +1,16 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-import img1 from "./assets/images/IMG_6626.jpg";
-import img2 from "./assets/images/IMG_6628.jpg";
+import img1 from "./assets/images/IMG_6634.jpg";
+import img2 from "./assets/images/IMG_6635.jpg";
 import img3 from "./assets/images/IMG_6624.jpg";
 import img4 from "./assets/images/IMG_6625.jpg";
 import img5 from "./assets/images/IMG_6633.jpg";
 import img6 from "./assets/images/IMG_6632.jpg";
 
-import imgGrid from "./assets/images/IMG_6629.jpg";
+import imgGrid from "./assets/images/IMG_6628.jpg";
 import imgSolar from "./assets/images/IMG_6629.jpg";
-import imgWind from "./assets/images/IMG_6629.jpg";
+import imgWind from "./assets/images/IMG_6627.jpg";
 
 import person1 from "./assets/images/person1.png";
 import person2 from "./assets/images/person2.png";
@@ -36,17 +36,17 @@ export const SITE = {
     },
   ],
   mission:
-    "每一批稻子在收获后都会经过严格的品质检测，确保颗粒完整、无杂质、水分达标，以稳定的品质为客户提供可靠的稻源保障，传递日本青森水稻的独特价值",
+    "確かな栽培技術と優良な品種選定を基盤に、日本有数の良質な稲作地帯・青森県より、純正で安定した稲源をお客様へ直接お届けしています",
   headNavigations: [
-    { label: "About", url: "/about" },
+    { label: "会社概要", url: "/about" },
     // { label: "Services", url: "/services" },
-    { label: "Contact", url: "/contact" },
+    { label: "お問い合わせ", url: "/contact" },
   ],
   footerDescription:
-    "我们坚持以生态种植为原则，拒绝滥用化学肥料与农药，严格遵循日本农业生产相关标准",
+    "私たちはエコ栽培（生態栽培）を基本原則とし、化学肥料・農薬の乱用を一切行わず、日本国の有機農業基準および関連法令を厳密に遵守しております。",
   footNavigations: [
     {
-      title: "联系我们",
+      title: "住所",
       items: [
         "青森县三户郡五户町大字倉石又重字太田5-7",
         "songjiacheng0528@gmail.com",
@@ -57,46 +57,27 @@ export const SITE = {
 };
 
 export const KEY_SERVICES = {
-  title: "我们的核心业务为「まっしぐら」水稻的种植与成品稻子销售",
-  section: "优质稻子直供服务",
+  title: [{ text: "高品質稲" }, "の直接供給サービス"],
+  section: "事業内容",
   leading:
-    "• 针对粮食加工企业，提供批量优质稻源，保障加工产品的品质基础\n• 面向餐饮机构与特色食材商，供应纯正青森县「まっしぐら」大米，满足高端饮食场景需求\n• 支持定制化采购服务，根据客户对稻子等级、产量的具体要求，提供适配的供应方案",
+    "当社の主な事業は、「まっしぐら」水稲の栽培および成品米の販売です。用途や規模に応じ、以下のような直供サービスを提供しています",
   services: [
     {
       title: "Solar Power Solutions",
-      description:
-        "Harness the power of the sun with our state-of-the-art solar panels. Generate clean energy for your home or business and reduce your carbon footprint.",
+      description: "食品加工企業様向け：安定供給可能な高品質稲源の一括供給",
       visual: img1,
     },
     {
       title: "Wind Energy Harvesting",
       description:
-        "Embrace the power of the wind. Our wind energy solutions provide a sustainable and efficient way to generate electricity, ensuring a greener future.",
+        "飲食店・高付加価値食材取扱事業者様向け：青森県産「まっしぐら」米の提供",
       visual: img2,
     },
     {
       title: "Hydropower Systems",
       description:
-        "Flow with nature. Our hydropower systems harness the energy of flowing water, delivering reliable and eco-friendly electricity to your doorstep.",
+        "カスタマイズ対応：等級・数量などのご要望に応じた柔軟な供給プラン",
       visual: img3,
-    },
-    {
-      title: "Energy Storage Solutions",
-      description:
-        "Store excess energy efficiently. Our cutting-edge energy storage solutions ensure uninterrupted power supply, even during cloudy days or low-wind periods.",
-      visual: img4,
-    },
-    {
-      title: "Smart Grid Technology",
-      description:
-        "Navigate the future with our smart grid technology. Optimize energy distribution, monitor consumption, and contribute to a more sustainable and efficient energy ecosystem.",
-      visual: img5,
-    },
-    {
-      title: "Energy-efficient Lighting",
-      description:
-        "Illuminate your space responsibly. Our energy-efficient lighting solutions provide bright, sustainable, and cost-effective illumination for homes and businesses.",
-      visual: img6,
     },
   ],
   callToAction:
@@ -105,27 +86,32 @@ export const KEY_SERVICES = {
 };
 
 export const INNOVATIONS = {
-  title:
-    "我们坚持以生态种植为原则，拒绝滥用化学肥料与农药，严格遵循日本农业生产相关标准",
-  section: "公司价值",
+  title: "",
+  section: "企業価値",
   leading: "",
   innovations: [
     {
-      title: "青森县「まっしぐら」的专属培育",
-      description:
-        "「まっしぐら」作为青森县本土优质水稻品种，以颗粒饱满、口感醇厚、香气绵长的特质闻名，其生长对气候、土壤、水质有着严苛要求。我们精准选址日本适宜该品种生长的优质地块，严格遵循青森县传统水稻种植标准，结合现代生态种植理念，确保每一株水稻都能充分吸收自然养分，还原品种本真风味。",
+      title: "青森県産「まっしぐら」の専属栽培",
+      description: [
+        "「まっしぐら」は、青森県で育成された良食味の水稲品種で、粒立ちの良さ、コクのある味わい、余韻の長い香りが特長です。一方で、気候・土壌・水質への要求が高く、栽培には高度な管理技術が求められます。",
+        "当社では、「まっしぐら」の生育に適した青森県内の圃場を厳選し、地域に根ざした伝統的な稲作基準を尊重しながら、現代的なエコ栽培の考え方を取り入れた生産体制を採用しています。自然の恵みを最大限に引き出し、品種本来の風味を大切に育てています。",
+      ],
       visual: imgGrid,
     },
     {
-      title: "四年深耕的种植经验背书",
-      description:
-        "自涉足「まっしぐら」水稻种植以来，我们已积累四年成熟种植经验，形成一套涵盖选种、育苗、田间管理、收割仓储的标准化流程。团队深谙该品种的生长习性，从育苗阶段的温湿度调控，到生长期的水肥管理、病虫害绿色防治，再到成熟后的精准收割与低温仓储，每一个环节都由经验丰富的种植人员全程把控，有效规避种植风险，保障稻子的稳定品质与高产稳产。",
+      title: "4年間の栽培経験に基づく安定した品質管理",
+      description: [
+        "「まっしぐら」の栽培に携わって以来、当社は4年間にわたり実地経験を積み重ね、種子選定・育苗・圃場管理・収穫・保管に至るまで、一貫した標準管理プロセスを確立してきました。",
+        "育苗期の温湿度管理、生育期の水肥調整、環境に配慮した病害虫対策、そして適期収穫と低温保管まで、各工程を経験豊富なスタッフが丁寧に管理しています。これにより、安定した品質と収量を実現しています。",
+      ],
       visual: imgSolar,
     },
     {
-      title: "从田间到客户的全程把控",
-      description:
-        "四年种植经验让我们深刻理解“好稻源于好管理”，我们坚持以生态种植为原则，拒绝滥用化学肥料与农药，严格遵循日本农业生产相关标准。每一批稻子在收获后都会经过严格的品质检测，确保颗粒完整、无杂质、水分达标，以稳定的品质为客户提供可靠的稻源保障，传递日本青森水稻的独特价值。",
+      title: "田んぼからお客様まで、一貫した品質管理",
+      description: [
+        "私たちは「良い米は、良い管理から生まれる」と考えています。化学肥料や農薬の過剰使用を避け、日本の農業関連基準を遵守した持続可能な栽培を実践しています。",
+        "収穫後は、すべてのロットに対して品質検査を実施し、粒の状態、異物、水分値などを厳格に確認。常に安定した品質で、青森県産水稲の価値を確実にお届けすることをお約束します。",
+      ],
       visual: imgWind,
     },
   ],
@@ -170,3 +156,12 @@ export const TESTIMONIALS = {
   callToAction: "Join Our Growing Community of Satisfied Customers",
   button: "Get Started",
 };
+
+export const SHOWS = [
+  { title: "show", description: "description", img: img1 },
+  { title: "show", description: "description", img: img2 },
+  { title: "show", description: "description", img: img3 },
+  { title: "show", description: "description", img: img4 },
+  { title: "show", description: "description", img: img5 },
+  { title: "show", description: "description", img: img6 },
+];

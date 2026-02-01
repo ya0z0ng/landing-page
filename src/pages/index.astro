@@ -5,13 +5,9 @@ import Hero from "../components/Hero.astro";
 import NavHeader from "../components/NavHeader.astro";
 import NavFooter from "../components/NavFooter.astro";
 import KeyServices from "../components/sections/KeyServices.astro";
-import ServiceCard from "../components/sections/components/ServiceCard.astro";
 import LatestInnovations from "../components/sections/LatestInnovations.astro";
-import InnovationCard from "../components/sections/components/InnovationCard.astro";
-import CustomerTestimonials from "../components/sections/CustomerTestimonials.astro";
-import TestimonialCard from "../components/sections/components/TestimonialCard.astro";
 import ContactUs from "../components/sections/ContactUs.astro";
-import { KEY_SERVICES, INNOVATIONS, TESTIMONIALS, SITE } from "../consts";
+import { SITE } from "../consts";
 
 const {
     company,
@@ -33,31 +29,15 @@ const {
             heroImg={HeroImg}
             title={value}
             leading={mission}
-            buttonText="联系我们"
+            buttonText="お問い合わせ"
         />
-        <i id="under-first-screen"></i>
-        <KeyServices
-            title={KEY_SERVICES.title}
-            section={KEY_SERVICES.section}
-            leading={KEY_SERVICES.leading}
-        >
-            {KEY_SERVICES.services.map((props) => <ServiceCard {...props} />)}
-        </KeyServices>
+        <KeyServices />
         <!-- Key Services Overview: -->
         <!-- Provide a brief overview of your main green energy services. -->
         <!-- Use engaging visuals and concise text to highlight the benefits. -->
         <!-- Include a call-to-action button leading to detailed service information. -->
 
-        <LatestInnovations
-            title={INNOVATIONS.title}
-            section={INNOVATIONS.section}
-        >
-            {
-                INNOVATIONS.innovations.map((props, index) => (
-                    <InnovationCard {...props} reverse={index % 2 === 0} />
-                ))
-            }
-        </LatestInnovations>
+        <LatestInnovations />
         <!-- Latest Innovations: -->
         <!-- Highlight any recent advancements or innovations in your green energy solutions. -->
         <!-- Use images and concise descriptions to showcase your commitment to cutting-edge technology. -->

@@ -1,8 +1,12 @@
 ---
 import Container from "../Container.astro";
-import Paragraph, { type TextDescription } from "../basic/Paragraph.astro";
+import Text, { type TextDescription } from "../basic/Text.astro";
 import Title from "../basic/Title.astro";
 import Tag from "../Tag.astro";
+import { SHOWS } from "../../consts";
+import ServiceCard from "./components/ServiceCard.astro";
+import CtaButton from "../CtaButton.astro";
+import { extendClass } from "../../utils";
 
 export interface Props {
     className?: string;
@@ -13,15 +17,20 @@ export interface Props {
 const { className, title, leading } = Astro.props;
 ---
 
-<section class={`bg-accent-50 py-header ${className}`}>
-    <Container
-        className="mx-auto flex flex-col items-center justify-center text-center"
+<section class={extendClass("bg-accent-50 py-header text-center", className)}>
+    <div
+        class="flex md:gap-12 max-md:gap-3 mb-16 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
     >
-        <Title>
-            <Paragraph text={title} />
-        </Title>
-        <Title level="s-2">
-            <Paragraph text={leading} />
-        </Title>
-    </Container>
+        {
+            SHOWS.map((item) => (
+                <ServiceCard
+                    title={item.title}
+                    description={item.description}
+                    visual={item.img}
+                    className="md:w-70 md:h-100 shrink-0 snap-center first:ml-16 last:mr-16 max-md:w-50 max-md:h-70 max-md:first:ml-padding max-md:last:mr-padding"
+                />
+            ))
+        }
+    </div>
+    <a href="/contact"><CtaButton>お問い合わせ</CtaButton></a>
 </section>

@@ -1,34 +1,48 @@
 ---
+import Intro from "../../assets/images/IMG_6626.jpg";
 import Container from "../Container.astro";
 import Title from "../basic/Title.astro";
-import ServiceCopyTextCard from "./components/ServiceCopyTextCard.astro";
-import type { TextDescription } from "../basic/Paragraph.astro";
+import Text from "../basic/Text.astro";
+import LazyImage from "../basic/LazyImage.astro";
 import Tag from "../Tag.astro";
+import { KEY_SERVICES } from "../../consts";
+import { extendClass } from "../../utils";
 
 export interface Props {
     className?: string;
-    title: string | TextDescription[];
-    section: string;
-    leading: string;
 }
 
-const { className, title, section, leading } = Astro.props;
+const { className } = Astro.props;
 ---
 
-<section id="services" class={`bg-accent-50 py-20 ${className}`}>
-    <Container size="wide">
-        <Tag><Title level="2">{section}</Title></Tag>
+<section id="services" class={extendClass("pt-20 md:pb-20", className)}>
+    <Container>
+        <Tag>{KEY_SERVICES.section}</Tag>
     </Container>
-    <Container size="wide">
-        <div
-            class="grid grid-col-1 md:grid-cols-3 lg:grid-cols-4 gap-y-2 gap-x-4"
-        >
-            <ServiceCopyTextCard
-                className="md:col-span-2 flex flex-col"
-                title={title}
-                leading={leading}
+    <Container
+        className="md:grid md:grid-cols-[60%_auto] max-max-content:gap-8 max-content:gap-16"
+    >
+        <div class="max-md:mb-16">
+            <Title className="mt-0"><Text text={KEY_SERVICES.title} /></Title>
+            <p class="font-bold max-content:py-12 max-max-content:py-5">
+                <Text text={KEY_SERVICES.leading} />
+            </p>
+            <ul>
+                {
+                    KEY_SERVICES.services.map((s) => (
+                        <li class="mb-4 marker:text-primary marker:content-['✓____'] marker:font-[system-ui] marker:font-bold">
+                            <Text text={s.description} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <div class="relative max-md:h-72 max-md:-mx-padding">
+            <LazyImage
+                src={Intro}
+                alt="A picture of a wind turbine."
+                className="min-w-0 md:rounded-[20px] overflow-hidden md:absolute h-full w-full max-w-[300px]"
             />
-            <slot />
         </div>
     </Container>
 </section>

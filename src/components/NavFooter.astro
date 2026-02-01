@@ -1,6 +1,6 @@
 ---
 import Container from "./Container.astro";
-import Paragraph from "./basic/Paragraph.astro";
+import Text from "./basic/Text.astro";
 
 interface Props {
     company: string;
@@ -18,21 +18,21 @@ const { company, footerDescription, navigations } = Astro.props;
     <footer class="relative pt-12 rounded-t-3xl">
         <Container className="pb-8 relative overflow-auto ">
             <div
-                class="grid grid-cols-[35%_auto] lg:items-stretch gap-16 relative"
+                class="grid grid-cols-[35%_auto] md:items-stretch gap-16 relative"
             >
-                <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
+                <div class="col-span-2 md:col-span-1 h-auto flex flex-col">
                     <div class="h-full">
-                        <a href="#" class="relative flex items-center gap-3">
+                        <a
+                            href="/"
+                            class="reset relative flex items-center gap-3 mb-3"
+                        >
                             <div
                                 class="inline-flex text-lg font-semibold text-heading-1"
                             >
                                 {company}
                             </div>
                         </a>
-                        <Paragraph
-                            className={"mt-8"}
-                            text={footerDescription}
-                        />
+                        <Text text={footerDescription} />
                     </div>
 
                     <!-- social links -->
@@ -41,7 +41,7 @@ const { company, footerDescription, navigations } = Astro.props;
                     >
                         <a
                             href="#"
-                            class="transition hover:text-heading-1 hover:scale-105"
+                            class="reset transition hover:text-heading-1 hover:scale-105"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ const { company, footerDescription, navigations } = Astro.props;
 
                         <a
                             href="#"
-                            class="transition hover:text-heading-1 hover:scale-105"
+                            class="reset transition hover:text-heading-1 hover:scale-105"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@ const { company, footerDescription, navigations } = Astro.props;
 
                         <a
                             href="#"
-                            class="transition hover:text-heading-1 hover:scale-105"
+                            class="reset transition hover:text-heading-1 hover:scale-105"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -96,9 +96,9 @@ const { company, footerDescription, navigations } = Astro.props;
                             <span class="sr-only">social link</span>
                         </a>
 
-                        <a
+                        <!-- <a
                             href="#"
-                            class="transition hover:text-heading-1 hover:scale-105"
+                            class="reset transition hover:text-heading-1 hover:scale-105"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -113,18 +113,18 @@ const { company, footerDescription, navigations } = Astro.props;
                                 ></path>
                             </svg>
                             <span class="sr-only">social link</span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
                 {
                     navigations.map(({ title, items }) => (
-                        <div class="grid md:grid-cols-2 gap-8 h-max">
+                        <div class="h-max max-md:col-span-2">
                             <nav class="space-y-6">
                                 <h2 class="capitalze font-semibold text-heading-1 text-xl">
                                     {title}
                                 </h2>
-                                <ul class="space-y-3 font-medium md:text-lg text-heading-3">
+                                <ul class="reset space-y-3 font-medium md:text-lg text-heading-3">
                                     {items.map((item) => (
                                         <li>
                                             {typeof item === "string" ? (
@@ -155,13 +155,13 @@ const { company, footerDescription, navigations } = Astro.props;
                         &copy; <span id="year"></span>
                         {company}. All right reserved
                     </div>
-                    <div>
+                    <!-- <div>
                         Made by <a
                             href="https://github.com/y0z0ng"
                             target="_blank"
                             class="font-semibold">Renaud Wang</a
                         >
-                    </div>
+                    </div> -->
                 </div>
             </Container>
         </div>

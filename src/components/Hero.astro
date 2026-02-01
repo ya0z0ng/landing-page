@@ -1,12 +1,12 @@
 ---
 import CtaButton from "./CtaButton.astro";
-import Paragraph, { type TextDescription } from "./basic/Paragraph.astro";
+import Text, { type TextDescription } from "./basic/Text.astro";
 import Title from "./basic/Title.astro";
 import LazyImage from "./basic/LazyImage.astro";
 
 export interface Props {
     className?: string;
-    title: string | TextDescription[];
+    title: string | (string | TextDescription)[];
     leading: string;
     heroImg: ImageMetadata;
     buttonText: string;
@@ -15,38 +15,42 @@ export interface Props {
 const { className = "", heroImg, title, leading, buttonText } = Astro.props;
 ---
 
-<section class={`relative h-dvh w-dvw md:py-header ${className}`} id="hero">
+<section
+    class={`relative h-dvh w-dvw max-content:py-header ${className}`}
+    id="hero"
+>
     <div
-        class="md:grid h-full md:grid-cols-2 justify-end md:bg-base-100 dark:bg-base-dark-900"
+        class="max-content:grid h-full max-content:grid-cols-2 justify-end max-content:bg-base-100 dark:bg-base-dark-900"
     >
         <div
-            class="justify-center flex flex-col text-center md:ml-auto md:max-w-160 md:p-header max-md:py-header max-md:px-p-sm max-md:absolute max-md:w-full max-md:h-full max-md:z-1 max-md:text-accent-50"
+            class="justify-center flex flex-col text-center max-content:ml-auto max-content:max-w-160 max-content:p-header max-max-content:py-header max-md:px-padding md:max-max-content:px-30 max-max-content:absolute max-max-content:w-full max-max-content:h-full max-max-content:z-1 max-max-content:text-accent-50"
         >
             <Title className="">
-                <Paragraph text={title} />
+                <Text text={title} />
             </Title>
-            <Title level="s-1" className="mt-10 md:leading-9 italic">
-                {leading}
-            </Title>
+            <Text
+                className="mt-10 max-content:leading-9 italic"
+                text={leading}
+            />
             <div class="pt-10">
-                <CtaButton>{buttonText}</CtaButton>
+                <a href="/contact"><CtaButton>{buttonText}</CtaButton></a>
             </div>
         </div>
-        <div class="flex relative md:p-0 max-md:h-full">
+        <div class="flex relative max-content:p-0 max-max-content:h-full">
             <LazyImage
                 src={heroImg}
                 alt="A picture of a wind turbine."
-                className="w-full h-full object-cover"
+                className="w-full h-full"
             />
             <svg
-                class="fill-base-100 dark:fill-base-dark-900 z-10 absolute top-0 start-0 h-full hidden md:block"
+                class="fill-base-100 dark:fill-base-dark-900 z-10 absolute top-0 start-0 h-full hidden max-content:block"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 500 400"
             >
                 <path d="M0 0l0 400L100 0Z"> </path>
             </svg>
             <div
-                class="max-md:block bg-linear-to-b from-black/20 to-black/60 absolute w-full h-full"
+                class="max-content:invisible bg-linear-to-b from-black/20 to-black/60 absolute w-full h-full"
             >
             </div>
         </div>
