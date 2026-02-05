@@ -19,7 +19,7 @@ import person3 from "./assets/images/person3.png";
 export const SITE_TITLE = "Astro Blog";
 export const SITE_DESCRIPTION = "Welcome to my website!";
 export const SITE = {
-  company: "株式会社至诚",
+  company: "株式会社至誠",
   address: "青森县三户郡五户町大字倉石又重字太田5-7",
   call: "0178326224",
   email: "songjiacheng0528@gmail.com",
@@ -39,7 +39,7 @@ export const SITE = {
     "確かな栽培技術と優良な品種選定を基盤に、日本有数の良質な稲作地帯・青森県より、純正で安定した稲源をお客様へ直接お届けしています",
   headNavigations: [
     { label: "会社概要", url: "/about" },
-    // { label: "Services", url: "/services" },
+    { label: "事業内容", url: "/service" },
     { label: "お問い合わせ", url: "/contact" },
   ],
   footerDescription:
