@@ -36,7 +36,7 @@ const { company, headNavigations, footNavigations, footerDescription } = SITE;
             <Title level="3" className="border-l-6 border-primary pl-2 mb-10"
                 >お問い合わせ先</Title
             >
-            <form class="basis-2/3">
+            <form id="form" class="basis-2/3 relative">
                 <!-- Grid de dos columnas -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Nombre -->
@@ -90,6 +90,11 @@ const { company, headNavigations, footNavigations, footerDescription } = SITE;
                 <div class="text-center md:text-right mt-4">
                     <CtaButton>送信する</CtaButton>
                 </div>
+                <div
+                    id="message"
+                    class="absolute top-0 w-full h-full flex items-center justify-center bg-accent-50 z-[-1] data-loading:z-1"
+                >
+                </div>
             </form>
         </Container>
     </main>
@@ -99,3 +104,30 @@ const { company, headNavigations, footNavigations, footerDescription } = SITE;
         navigations={footNavigations}
     />
 </Layout>
+<script>
+    const form = document.getElementById("form") as HTMLFormElement;
+    const message = document.getElementById("message") as HTMLDivElement;
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log(event);
+        message.textContent = "送信中...";
+        message.dataset.loading = "true";
+        fetch("/api/send-email", {
+            method: "POST",
+            body: new FormData(form),
+        })
+            .then(() => {
+                message.textContent = "送信しました";
+                form.reset();
+                setTimeout(() => {
+                    delete message.dataset.loading;
+                }, 1000);
+            })
+            .catch((error) => {
+                message.textContent = "送信に失敗しました";
+                setTimeout(() => {
+                    delete message.dataset.loading;
+                }, 1000);
+            });
+    });
+</script>

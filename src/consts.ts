@@ -20,7 +20,7 @@ export const SITE_TITLE = "株式会社至誠";
 export const SITE_DESCRIPTION = "株式会社至誠,";
 export const SITE = {
   company: "株式会社至誠",
-  address: "青森县三户郡五户町大字倉石又重字太田5-7",
+  address: "青森県三户郡五户町大字倉石又重字太田5-7",
   call: "0178326224",
   email: "songjiacheng0528@gmail.com",
   site: "https://www.example.com",
@@ -29,7 +29,7 @@ export const SITE = {
   paidInCapital: "1000万日元",
   services: ["水稲専用栽培・販売"],
   value: [
-    "青森县「まっしぐら」",
+    "青森県「まっしぐら」",
     {
       text: "水稲専用栽培・販売",
       foreground: "green",
@@ -48,7 +48,7 @@ export const SITE = {
     {
       title: "住所",
       items: [
-        "青森县三户郡五户町大字倉石又重字太田5-7",
+        "青森県三户郡五户町大字倉石又重字太田5-7",
         "songjiacheng0528@gmail.com",
         "0178326224",
       ],
