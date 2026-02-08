@@ -16,8 +16,8 @@ import person1 from "./assets/images/person1.png";
 import person2 from "./assets/images/person2.png";
 import person3 from "./assets/images/person3.png";
 
-export const SITE_TITLE = "Astro Blog";
-export const SITE_DESCRIPTION = "Welcome to my website!";
+export const SITE_TITLE = "株式会社至誠";
+export const SITE_DESCRIPTION = "株式会社至誠,";
 export const SITE = {
   company: "株式会社至誠",
   address: "青森县三户郡五户町大字倉石又重字太田5-7",
@@ -27,11 +27,11 @@ export const SITE = {
   foundedTime: "2023年",
   board: "株式会社至诚の会社役員",
   paidInCapital: "1000万日元",
-  services: ["水稻专属种植与销售"],
+  services: ["水稲専用栽培・販売"],
   value: [
     "青森县「まっしぐら」",
     {
-      text: "水稻专属种植与销售",
+      text: "水稲専用栽培・販売",
       foreground: "green",
     },
   ],
